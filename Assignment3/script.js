@@ -8,10 +8,18 @@ import { RhinoCompute } from 'https://cdn.jsdelivr.net/npm/compute-rhino3d@0.13.
 const definitionName = 'truss.gh'
 
 // listen for slider change events
-const count_slider = document.getElementById( 'count' )
-count_slider.addEventListener( 'input', onSliderChange, false )
-const radius_slider = document.getElementById( 'radius' )
-radius_slider.addEventListener( 'input', onSliderChange, false )
+const length_slider = document.getElementById( 'length' )
+length_slider.addEventListener( 'input', onSliderChange, false )
+const division_slider = document.getElementById( 'division' )
+division_slider.addEventListener( 'input', onSliderChange, false )
+const h_init_slider = document.getElementById( 'h_init' )
+h_init_slider.addEventListener( 'input', onSliderChange, false )
+const h_step_slider = document.getElementById( 'h_step' )
+h_step_slider.addEventListener( 'input', onSliderChange, false )
+const f_rad_slider = document.getElementById( 'f_rad' )
+f_rad_slider.addEventListener( 'input', onSliderChange, false )
+const d_rad_slider = document.getElementById( 'd_rad' )
+d_rad_slider.addEventListener( 'input', onSliderChange, false )
 
 const downloadButton = document.getElementById("downloadButton")
 downloadButton.onclick = download
@@ -60,15 +68,15 @@ async function compute() {
     let param1 = new RhinoCompute.Grasshopper.DataTree('RH_IN:length')
     param1.append([0], [length])
     let param2 = new RhinoCompute.Grasshopper.DataTree('RH_IN:division')
-    param2.append([0], [count])
+    param2.append([0], [division])
     let param3 = new RhinoCompute.Grasshopper.DataTree('RH_IN:h_init')
-    param3.append([0], [radius])
+    param3.append([0], [h_init])
     let param4 = new RhinoCompute.Grasshopper.DataTree('RH_IN:h_step')
-    param4.append([0], [count])
+    param4.append([0], [h_step])
     let param5 = new RhinoCompute.Grasshopper.DataTree('RH_IN:f_rad')
-    param5.append([0], [count])
+    param5.append([0], [f_rad])
     let param6 = new RhinoCompute.Grasshopper.DataTree('RH_IN:d_rad')
-    param6.append([0], [count])
+    param6.append([0], [d_rad])
 
     // Add all params to an array
     let trees = []
