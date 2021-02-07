@@ -9,17 +9,17 @@ const definitionName = 'truss.gh'
 
 // listen for slider change events
 const length_slider = document.getElementById( 'length' )
-length_slider.addEventListener( 'input', onSliderChange, false )
+length_slider.addEventListener( 'mouseup', onSliderChange, false )
 const division_slider = document.getElementById( 'division' )
-division_slider.addEventListener( 'input', onSliderChange, false )
+division_slider.addEventListener( 'mouseup', onSliderChange, false )
 const h_init_slider = document.getElementById( 'h_init' )
-h_init_slider.addEventListener( 'input', onSliderChange, false )
+h_init_slider.addEventListener( 'mouseup', onSliderChange, false )
 const h_step_slider = document.getElementById( 'h_step' )
-h_step_slider.addEventListener( 'input', onSliderChange, false )
+h_step_slider.addEventListener( 'mouseup', onSliderChange, false )
 const f_rad_slider = document.getElementById( 'f_rad' )
-f_rad_slider.addEventListener( 'input', onSliderChange, false )
+f_rad_slider.addEventListener( 'mouseup', onSliderChange, false )
 const d_rad_slider = document.getElementById( 'd_rad' )
-d_rad_slider.addEventListener( 'input', onSliderChange, false )
+d_rad_slider.addEventListener( 'mouseup', onSliderChange, false )
 
 const downloadButton = document.getElementById("downloadButton")
 downloadButton.onclick = download
@@ -189,10 +189,11 @@ function init() {
     // create a scene and a camera
     scene = new THREE.Scene()
     scene.background = new THREE.Color(0, 0, 0)
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+    camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000)
     camera.position.x =0 
     camera.position.y = 30
     camera.position.z =  -1
+    camera.zoom =
 
     // create the renderer and add it to the html
     renderer = new THREE.WebGLRenderer({ antialias: true })
